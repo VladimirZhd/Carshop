@@ -12,6 +12,7 @@ import { CarDetailComponent } from './cars/car-detail/car-detail.component';
 import { HomeComponent } from './home/home.component';
 import { CarEditComponent } from './cars/car-edit/car-edit.component';
 import { AppRoutingModule } from './app-routing';
+import { getBaseUrl } from 'src/main';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,9 @@ import { AppRoutingModule } from './app-routing';
     FormsModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [
+    { provide: 'BASE_URL', useFactory: getBaseUrl, deps: [] }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

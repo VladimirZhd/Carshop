@@ -5,11 +5,12 @@ import { CarListComponent } from "./cars/car-list/car-list.component";
 import { CarEditComponent } from "./cars/car-edit/car-edit.component";
 import { CarDetailComponent } from "./cars/car-detail/car-detail.component";
 import { HomeComponent } from "./home/home.component";
+import { CarsComponent } from "./cars/cars.component";
 
 const appRoutes: Routes = [
     { path: '', redirectTo: '/home', pathMatch: 'full' },
     {
-        path: 'cars', component: CarListComponent, children: [
+        path: 'cars', component: CarsComponent, children: [
             { path: 'new', component: CarEditComponent },
             { path: ':id', component: CarDetailComponent },
             { path: ':id/edit', component: CarEditComponent }
