@@ -1,1 +1,22 @@
-<p>car-detail works!</p>
+<div class="row btn-toolbar ml-1">
+    <a routerLink='./edit' class="btn btn-primary my-2 text-light">Edit vehicle info</a>
+    <a class="btn btn-primary my-2 text-light ml-1" (click)='onCancel()'>Back</a>
+    <a class="btn btn-danger my-2 text-light ml-1" (click)='onDelete()'>Delete</a>
+</div>
+
+<div class="row bg-light">
+    <div class="col-md-4">
+        <img src="{{car.ImgUrl}}" alt="{{car.Make}} {{car.Model}}">
+    </div>
+    <div class="col-md-4">
+        <h2>{{car.Make}} {{car.Model}}</h2>
+        <p class="lead my-2 font-weight-bold">Year: {{car.Year}}</p>
+        <p class="lead my-2 font-weight-bold">Mileage: {{car.Mileage | number:'1.0':'en-US'}}</p>
+        <p class="lead my-2 font-weight-bold">Title: {{car.Title}}</p>
+        <p class="lead my-2 font-weight-bold">Description: {{car.Description}}</p>
+    </div>
+    <div class="col-md-4">
+        <p class="lead my-2 font-weight-bold">Price: <span
+                class="text-success">{{car.Price | currency:'USD':'symbol-narrow':'4.0-0'}}</span></p>
+    </div>
+</div>

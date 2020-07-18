@@ -4,19 +4,15 @@ import { Routes, RouterModule } from "@angular/router";
 import { CarEditComponent } from "./cars/car-edit/car-edit.component";
 import { CarDetailComponent } from "./cars/car-detail/car-detail.component";
 import { HomeComponent } from "./home/home.component";
-import { CarsComponent } from "./cars/cars.component";
 import { CarListComponent } from "./cars/car-list/car-list.component";
 
 const appRoutes: Routes = [
     { path: '', redirectTo: '/home', pathMatch: 'full' },
-    {
-        path: 'cars', component: CarListComponent, children: [
-            { path: 'new', component: CarEditComponent },
-            { path: ':id', component: CarDetailComponent },
-            { path: ':id/edit', component: CarEditComponent }
-        ]
-    },
-    { path: 'home', component: HomeComponent }
+    { path: 'home', component: HomeComponent },
+    { path: 'cars', component: CarListComponent },
+    { path: 'cars/new', component: CarEditComponent },
+    { path: 'cars/:id', component: CarDetailComponent },
+    { path: 'cars/:id/edit', component: CarEditComponent },
 ];
 
 @NgModule({

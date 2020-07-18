@@ -1,46 +1,63 @@
 <div class="container">
     <div class="row">
         <div class="col-md-12">
-            <form id="car-edit">
+            <div class="row">
+                <div class="col-sm-12">
+                    <p class="lead font-weight-bold my-2" *ngIf='editMode == false'>Add a new vehicle</p>
+                </div>
+                <div class="col-sm-12">
+                    <p class="lead font-weight-bold my-2" *ngIf='editMode == true'>Edit vehicle information</p>
+                </div>
+            </div>
+            <form id="car-edit" (ngSubmit)="onSave()" #f="ngForm">
                 <div class="row">
                     <div class="col-sm-12 from-group">
                         <label for="make">Make</label>
-                        <input type="text" name="make" id="make" class="form-control required">
+                        <input type="text" name="make" id="make" class="form-control required" [ngModel]='car?.Make'
+                            #make='ngModel' required>
                     </div>
                     <div class="col-sm-12 from-group">
                         <label for="model">Model</label>
-                        <input type="text" name="model" id="model" class="form-control required">
+                        <input type="text" name="model" id="model" class="form-control required" [ngModel]='car?.Model'
+                            #model='ngModel' required>
                     </div>
                     <div class="col-sm-12 from-group">
-                        <label for="make">Make</label>
-                        <input type="text" name="make" id="make" class="form-control required">
+                        <label for="price">Price</label>
+                        <input type="text" name="price" id="price" class="form-control required" [ngModel]='car?.Price'
+                            #price='ngModel' required>
                     </div>
                     <div class="col-sm-12 from-group">
                         <label for="description">Description</label>
-                        <textarea type="text" name="description" id="description"
-                            class="form-control required"></textarea>
+                        <textarea type="text" name="description" id="description" class="form-control required"
+                            [ngModel]='car?.Description' #description='ngModel'></textarea>
                     </div>
                     <div class="col-sm-12 from-group">
                         <label for="title">Title</label>
-                        <input type="text" name="title" id="title" class="form-control required">
+                        <input type="text" name="title" id="title" class="form-control required" [ngModel]='car?.Title'
+                            #title='ngModel'>
                     </div>
                     <div class="col-sm-12 from-group">
                         <label for="mileage">Mileage</label>
-                        <input type="text" name="mileage" id="mileage" class="form-control required">
+                        <input type="text" name="mileage" id="mileage" class="form-control required"
+                            [ngModel]='car?.Mileage' #mileage='ngModel' required>
                     </div>
                     <div class="col-sm-12 from-group">
                         <label for="year">Year</label>
-                        <input type="text" name="year" id="year" class="form-control required">
+                        <input type="text" name="year" id="year" class="form-control required" [ngModel]='car?.Year'
+                            #year='ngModel' required>
                     </div>
                     <div class="col-sm-12 from-group">
                         <label for="imgUrl">Image Url</label>
-                        <input type="text" name="imgUrl" id="imgUrl" class="form-control required">
+                        <input type="text" name="imgUrl" id="imgUrl" class="form-control required"
+                            [ngModel]='car?.ImgUrl' #imgUrl='ngModel'>
+                        <img src="{{imgUrl.value}}" alt="" *ngIf='imgUrl' style="width: 250px; height: 200px;"
+                            class="my-2">
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-xs-12 btn-toolbar">
-                        <button class="btn-success btn" type="submit">Save</button>
-                        <button class="btn btn-primary" type="button">Cancel</button>
+                <div class="row my-2 ml-1">
+                    <div class="col-xs-12">
+                        <button class="btn-success btn mr-1" type="submit" [disabled]='f.invalid'>Save</button>
+                        <button class="btn btn-primary" type="button" (click)='onCancel()'>Cancel</button>
                     </div>
                 </div>
             </form>

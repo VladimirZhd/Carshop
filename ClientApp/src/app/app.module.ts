@@ -5,7 +5,6 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
-import { CarsComponent } from './cars/cars.component';
 import { CarListComponent } from './cars/car-list/car-list.component';
 import { CarItemComponent } from './cars/car-item/car-item.component';
 import { CarDetailComponent } from './cars/car-detail/car-detail.component';
@@ -18,7 +17,6 @@ import { getBaseUrl } from 'src/main';
   declarations: [
     AppComponent,
     HeaderComponent,
-    CarsComponent,
     CarListComponent,
     CarItemComponent,
     CarDetailComponent,

@@ -17,13 +17,9 @@ namespace Carshop.Models
         public string CarModel { get; set; }
         public decimal Price { get; set; }
         public string Description { get; set; }
-        [BsonElement("Title Type")]
-        [JsonProperty("Title Type")]
         public string Title { get; set; }
         public int Mileage { get; set; }
         public int Year { get; set; }
-        [BsonElement("Image")]
-        [JsonProperty("Image")]
         public string ImgUrl { get; set; }
     }
 }

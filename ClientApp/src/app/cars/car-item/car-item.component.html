@@ -1,12 +1,30 @@
-<div class="row my-3">
-    <div class="col-sm-3">
-        <div class="card">
-            <img class="card-img-top" src="https://picsum.photos/200/200
-            " alt="">
-            <div class="card-body text-center bg-light">
-                <h4 class="card-title">Title</h4>
-                <p class="card-text">Text</p>
+<div class="col">
+    <a routerLink='{{car.Id}}' routerLinkActive='active'>
+        <div class="card my-2">
+            <img class="card-img-top" src="{{car.ImgUrl}}
+                " alt="">
+            <div class="card-body bg-light">
+                <div class="row text-wrap">
+                    <div class="col">
+                        <h4 class="card-title">{{car.Make}} {{car.Model}}</h4>
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <p class="card-text ">Price: <span
+                                class="text-success">{{car.Price | currency:'USD':'symbol-narrow':'4.0-0'}}</span></p>
+                    </div>
+                    <div class="col-sm-12">
+                        <p class="card-text">Mileage: {{car.Mileage | number:'1.0':'en-US'}}</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <p class="card-text">Year: {{car.Year}}</p>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
+    </a>
 </div>

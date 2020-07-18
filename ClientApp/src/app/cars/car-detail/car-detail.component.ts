@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Car } from '../car.model';
+import { CarService } from '../car.service';
+import { Router, ActivatedRoute, Params } from '@angular/router';
 
 @Component({
   selector: 'app-car-detail',
@@ -6,10 +9,28 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./car-detail.component.css']
 })
 export class CarDetailComponent implements OnInit {
+  car: Car;
 
-  constructor() { }
+  constructor(private carService: CarService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
+    const id = this.route.snapshot.paramMap.get('id');
+    if (!id) {
+      return;
+    }
+
+    if (id) {
+      this.carService.getCar(id).subscribe(car => this.car = car);
+    }
+  }
+
+  onCancel() {
+    this.router.navigate(['../'], { relativeTo: this.route });
+  }
+
+  onDelete() {
+    this.carService.deleteCar(this.car);
+    this.router.navigate(['../'], { relativeTo: this.route });
   }
 
 }
