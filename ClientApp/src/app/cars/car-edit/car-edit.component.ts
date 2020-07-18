@@ -5,7 +5,6 @@ import { CurrencyPipe } from "@angular/common";
 
 import { CarService } from '../car.service';
 import { Car } from '../car.model';
-import { IfStmt } from '@angular/compiler';
 
 @Component({
   selector: 'app-car-edit',
