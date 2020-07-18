@@ -10,10 +10,12 @@
     </div>
     <div class="col-md-4">
         <h2>{{car.Make}} {{car.Model}}</h2>
-        <p class="lead my-2 font-weight-bold">Year: {{car.Year}}</p>
-        <p class="lead my-2 font-weight-bold">Mileage: {{car.Mileage | number:'1.0':'en-US'}}</p>
-        <p class="lead my-2 font-weight-bold">Title: {{car.Title}}</p>
-        <p class="lead my-2 font-weight-bold">Description: {{car.Description}}</p>
+        <p class="lead my-2 font-weight-bold">Year: <span class="font-weight-normal">{{car.Year}}</span></p>
+        <p class="lead my-2 font-weight-bold">Mileage: <span
+                class="font-weight-normal">{{car.Mileage | number:'1.0':'en-US'}}</span></p>
+        <p class="lead my-2 font-weight-bold">Title: <span class="font-weight-normal">{{car.Title}}</span></p>
+        <p class="lead my-2 font-weight-bold">Description: <span class="font-weight-normal">{{car.Description}}</span>
+        </p>
     </div>
     <div class="col-md-4">
         <p class="lead my-2 font-weight-bold">Price: <span
